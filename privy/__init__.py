@@ -44,6 +44,9 @@ SECURITY_LEVEL_TIMES = OrderedDict([
 
 
 def hide(secret, password, security=2, salt=None, server=True):
+    if isinstance(password, str):
+        password = password.encode('utf-8')
+
     salt = salt or urandom(SALT_LENGTH)
 
     hashed = hash_secret_raw(
@@ -59,6 +62,9 @@ def hide(secret, password, security=2, salt=None, server=True):
 
 
 def peek(hidden, password):
+    if isinstance(password, str):
+        password = password.encode('utf-8')
+
     server, security, salt, token = hidden.split('$')
     server = int(server)
     security = int(security)
@@ -71,17 +77,3 @@ def peek(hidden, password):
     )
 
     return Fernet(urlsafe_b64encode(hashed)).decrypt(token)
-
-
-
-
-
-
-
-
-
-
-
-
-
-

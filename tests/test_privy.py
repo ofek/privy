@@ -8,4 +8,14 @@ class TestPrivy:
         secret = b'secret'
         password = b'password'
 
-        assert privy.peek(privy.hide(secret, password), password) == secret
+        hidden = privy.hide(secret, password)
+
+        assert privy.peek(hidden, password) == secret
+
+    def test_unicode_password(self):
+        secret = b'secret'
+        password = u'password'
+
+        hidden = privy.hide(secret, password)
+
+        assert privy.peek(hidden, password) == secret

@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='privy',
-    version='0.1.0',
+    version='1.0.0',
     description='Password-protected secrets.',
     long_description=open('README.rst', 'r').read(),
     author='Ofek Lev',
@@ -18,7 +18,7 @@ setup(
     ),
 
     classifiers=(
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
