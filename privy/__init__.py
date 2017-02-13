@@ -44,7 +44,7 @@ SECURITY_LEVEL_TIMES = OrderedDict([
 
 
 def hide(secret, password, security=2, salt=None, server=True):
-    if isinstance(password, str):
+    if not isinstance(password, bytes):
         password = password.encode('utf-8')
 
     salt = salt or urandom(SALT_LENGTH)
@@ -62,7 +62,7 @@ def hide(secret, password, security=2, salt=None, server=True):
 
 
 def peek(hidden, password):
-    if isinstance(password, str):
+    if not isinstance(password, bytes):
         password = password.encode('utf-8')
 
     server, security, salt, token = hidden.split('$')
