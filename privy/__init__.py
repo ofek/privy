@@ -3,9 +3,9 @@ from collections import OrderedDict
 from os import urandom
 
 from argon2.low_level import Type, hash_secret_raw
-from cryptography.fernet import Fernet
+from cryptography.fernet import Fernet, InvalidToken
 
-from .utils import bytes_to_hex, hex_to_bytes
+from .utils import bytes_to_hex, ensure_bytes, ensure_unicode, hex_to_bytes
 
 
 HASH_LENGTH = 32
@@ -44,8 +44,7 @@ SECURITY_LEVEL_TIMES = OrderedDict([
 
 
 def hide(secret, password, security=2, salt=None, server=True):
-    if not isinstance(password, bytes):
-        password = password.encode('utf-8')
+    password = ensure_bytes(password)
 
     salt = salt or urandom(SALT_LENGTH)
 
@@ -61,11 +60,10 @@ def hide(secret, password, security=2, salt=None, server=True):
     )
 
 
-def peek(hidden, password):
-    if not isinstance(password, bytes):
-        password = password.encode('utf-8')
+def peek(hidden, password, expires=None):
+    password = ensure_bytes(password)
 
-    server, security, salt, token = hidden.split('$')
+    server, security, salt, token = ensure_unicode(hidden).split('$')
     server = int(server)
     security = int(security)
     salt = hex_to_bytes(salt)
@@ -76,4 +74,13 @@ def peek(hidden, password):
         type=Type.I if server else Type.D, **SECURITY_LEVELS[security]
     )
 
-    return Fernet(urlsafe_b64encode(hashed)).decrypt(token)
+    try:
+        secret = Fernet(urlsafe_b64encode(hashed)).decrypt(token, expires)
+    except InvalidToken:
+        raise ValueError(
+            'Unable to decrypt secret. The means either the password is wrong,'
+            ' the password was attempted on a different hidden secret, or the '
+            'secret was encrypted more than {} seconds ago.'.format(expires)
+        )
+
+    return secret
