@@ -17,3 +17,9 @@ Privy: Password-protected secrets.
     :target: https://en.wikipedia.org/wiki/MIT_License
 
 -----
+
+Privy is a small and fast utility for password-protecting secrets such as
+seeds for digital signatures or Bitcoin wallets.
+
+Usage
+-----
