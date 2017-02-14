@@ -56,11 +56,11 @@ encryption is derived from the password using a `key derivation function`_. The
 key derivation function used is `Argon2`_, the winner of the `Password Hashing
 Competition`_. Both Argon2i and Argon2d variants are supported.
 
-API
----
+API reference
+-------------
 
 hide(secret, password, security=2, salt=None, server=True)
-**********************************************************
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * *secret* (``bytes``) - The secret to encrypt.
 * *password* (``bytes`` or ``unicode``) - The password used to access the secret.
