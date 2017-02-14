@@ -97,9 +97,11 @@ different hidden secret, or the number of seconds since encryption is > ``expire
 Security levels
 ---------------
 
-+--------+-----------------+---------------+-------+
-| Levels | Argon2 settings | Expected time | Notes |
-+========+=================+===============+=======+
++--------+-----------------+---------------+-----------------+
+| Levels | Argon2 settings | Expected time | Notes           |
++========+=================+===============+=================+
+| 0      | m=8 KiB, t=1    | 600 usec      | Lowest possible |
++--------+-----------------+---------------+-----------------+
 
 .. _Fernet: https://github.com/fernet/spec/blob/master/Spec.md
 .. _key derivation function: https://en.wikipedia.org/wiki/Key_derivation_function
