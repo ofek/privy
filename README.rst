@@ -67,6 +67,7 @@ hide(secret, password, security=2, salt=None, server=True)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Parameters
+
   * *secret* (``bytes``) - The secret to encrypt.
   * *password* (``bytes`` or ``unicode``) - The password used to access the secret.
   * *security* (``int``) - A number 0-10 inclusive. Higher values are more secure at
