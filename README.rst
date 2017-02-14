@@ -1,5 +1,5 @@
-Privy: Password-protected secrets.
-==================================
+Privy: Password-protected secrets
+=================================
 
 .. image:: https://img.shields.io/pypi/v/privy.svg?style=flat-square
     :target: https://pypi.org/project/privy
@@ -58,6 +58,12 @@ Competition`_. Both Argon2i and Argon2d variants are supported.
 
 API
 ---
+
+hide(secret, password, security=2, salt=None, server=True)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* *secret* (``bytes``) - The secret to encrypt.
+* *password* (``bytes`` or ``unicode``) - The password used to access the secret.
 
 .. _Fernet: https://github.com/fernet/spec/blob/master/Spec.md
 .. _key derivation function: https://en.wikipedia.org/wiki/Key_derivation_function
