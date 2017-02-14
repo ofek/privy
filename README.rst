@@ -66,19 +66,40 @@ There are 2 functions: ``hide`` and ``peek``.
 hide(secret, password, security=2, salt=None, server=True)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- Parameters
+Encrypts ``secret`` using ``password``. Returns the hidden secret as unicode.
 
-  * *secret* (``bytes``) - The secret to encrypt.
-  * *password* (``bytes`` or ``unicode``) - The password used to access the secret.
-  * *security* (``int``) - A number 0-10 inclusive. Higher values are more secure at
+* Parameters
+
+  - **secret** (``bytes``) - The secret to encrypt.
+  - **password** (``bytes`` or ``unicode``) - The password used to access the secret.
+  - **security** (``int``) - A number 0-10 inclusive. Higher values are more secure at
     the cost of slower computation and greater use of memory. See `security levels`_.
-  * *salt* (``bytes``) - The salt used for the password hash. Defaults to ``os.urandom(32)``.
-  * *server* (``bool``) - If ``True``, it is assumed side-channel attack protection is
-    needed and therefore the Argon2i algorithm will be used. Otherwise, the password be
-    hashed using the Argon2d algorithm.
+  - **salt** (``bytes``) - The salt used for the password hash. Defaults to ``os.urandom(32)``.
+  - **server** (``bool``) - If ``True``, it is assumed side-channel attack protection is
+    needed and therefore the Argon2i algorithm will be used. Otherwise, the password will
+    be hashed using the Argon2d algorithm.
+
+peek(hidden, password, expires=None)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Decrypts ``hidden`` using ``password``. Returns the secret as ``bytes``.
+
+* Parameters
+
+  - **hidden** (``bytes`` or ``unicode``) - The hidden secret to decrypt.
+  - **password** (``bytes`` or ``unicode``) - The password used to access the secret.
+  - **expires** (``int``) - The maximum number of seconds since encryption that
+    is allowed. The default is no expiration.
+
+A ``ValueError`` will be raised if the password is wrong, the password was attempted on a
+different hidden secret, or the number of seconds since encryption is > ``expires`` argument.
 
 Security levels
 ---------------
+
++--------+-----------------+---------------+-------+
+| Levels | Argon2 settings | Expected time | Notes |
++========+=================+===============+=======+
 
 .. _Fernet: https://github.com/fernet/spec/blob/master/Spec.md
 .. _key derivation function: https://en.wikipedia.org/wiki/Key_derivation_function
