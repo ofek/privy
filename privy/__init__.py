@@ -28,20 +28,6 @@ SECURITY_LEVELS = OrderedDict([
     (10, {'memory_cost': MB * MB * 2, 'time_cost': 20}),
 ])
 
-SECURITY_LEVEL_TIMES = OrderedDict([
-    (0, 0.0005),
-    (1, 0.05),
-    (2, 0.09),
-    (3, 0.35),
-    (4, 0.55),
-    (5, 1),
-    (6, 3),
-    (7, 5),
-    (8, 9),
-    (9, 12),
-    (10, 48),
-])
-
 
 def hide(secret, password, security=2, salt=None, server=True):
     password = ensure_bytes(password)

@@ -23,6 +23,14 @@ def test_security():
     assert privy.peek(hidden, password) == secret
 
 
+def test_invalid_security():
+    secret = b'secret'
+    password = b'password'
+
+    with pytest.raises(KeyError):
+        privy.hide(secret, password, security=99)
+
+
 def test_salt():
     secret = b'secret'
     password = b'password'
