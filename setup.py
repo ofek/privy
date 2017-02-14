@@ -3,7 +3,7 @@ from setuptools import find_packages, setup
 setup(
     name='privy',
     version='1.0.0',
-    description='Password-protected secrets.',
+    description='Secrets made easy.',
     long_description=open('README.rst', 'r').read(),
     author='Ofek Lev',
     author_email='ofekmeister@gmail.com',
