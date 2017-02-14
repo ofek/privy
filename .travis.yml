@@ -4,6 +4,8 @@ matrix:
     include:
         - python: 2.7
           env: TOXENV=py27
+        - python: 3.3
+          env: TOXENV=py33
         - python: 3.4
           env: TOXENV=py34
         - python: 3.5
@@ -12,8 +14,13 @@ matrix:
           env: TOXENV=py36
         - python: pypy-5.4
           env: TOXENV=pypy
-#        - python: pypy3.3-5.2-alpha1
-#          env: TOXENV=pypy3
+        - python: pypy3
+          env: TOXENV=pypy3
+
+before_install:
+  - cd $HOME
+  - "if [[ $TRAVIS_PYTHON_VERSION == 'pypy3' ]]; then deactivate && wget https://bitbucket.org/squeaky/portable-pypy/downloads/pypy3.3-5.5-alpha-20161013-linux_x86_64-portable.tar.bz2 && tar -jxvf pypy3.3-5.5-alpha-20161013-linux_x86_64-portable.tar.bz2 && echo 'Setting up aliases...' && export PATH=$HOME/pypy3.3-5.5-alpha-20161013-linux_x86_64-portable/bin/:$PATH && ln -s ~/pypy3.3-5.5-alpha-20161013-linux_x86_64-portable/bin/pypy3.3 ~/bin/python && echo 'Setting up pip...' && pypy3.3-5.5-alpha-20161013-linux_x86_64-portable/bin/pypy -m ensurepip && ln -s ~/pypy3.3-5.5-alpha-20161013-linux_x86_64-portable/bin/pip3.3 ~/bin/pip ; fi"
+  - cd $TRAVIS_BUILD_DIR
 
 install:
   - "pip install tox"
