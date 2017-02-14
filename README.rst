@@ -59,6 +59,8 @@ Competition`_. Both Argon2i and Argon2d variants are supported.
 API
 ---
 
+testing docs...
+
 hide(secret, password, security=2, salt=None, server=True)
 //////////////////////////////////////////////////////////
 
