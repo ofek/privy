@@ -1,5 +1,5 @@
-Privy: Secrets made easy
-========================
+Privy: Password-protected secrets made easy
+===========================================
 
 .. image:: https://img.shields.io/pypi/v/privy.svg?style=flat-square
     :target: https://pypi.org/project/privy
