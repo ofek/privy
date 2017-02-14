@@ -17,6 +17,7 @@ matrix:
         - python: pypy3
           env: TOXENV=pypy3
 
+# Adapted from https://github.com/biopython/biopython/commit/4b4902ffeb4da519c20a7b5c0996bfde681bee1f
 before_install:
   - cd $HOME
   - mkdir bin

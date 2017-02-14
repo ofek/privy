@@ -41,7 +41,7 @@ Usage
 Installation
 ------------
 
-Privy is available on Linux/macOS and Windows and supports Python 2.7, 3.4+, and PyPy.
+Privy is available on Linux/macOS and Windows and supports Python 2.7, 3.3+, PyPy, and PyPy3.3-5.5+.
 
 .. code-block:: bash
 
