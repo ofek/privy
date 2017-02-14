@@ -66,15 +66,15 @@ There are 2 functions: ``hide`` and ``peek``.
 hide(secret, password, security=2, salt=None, server=True)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Parameters
-    - *secret* (``bytes``) - The secret to encrypt.
-    - *password* (``bytes`` or ``unicode``) - The password used to access the secret.
-    - *security* (``int``) - A number 0-10 inclusive. Higher values are more secure at
-      the cost of slower computation and greater use of memory. See `security levels`_.
-    - *salt* (``bytes``) - The salt used for the password hash. Defaults to ``os.urandom(32)``.
-    - *server* (``bool``) - If ``True``, it is assumed side-channel attack protection is
-      needed and therefore the Argon2i algorithm will be used. Otherwise, the password be
-      hashed using the Argon2d algorithm.
+- Parameters
+  * *secret* (``bytes``) - The secret to encrypt.
+  * *password* (``bytes`` or ``unicode``) - The password used to access the secret.
+  * *security* (``int``) - A number 0-10 inclusive. Higher values are more secure at
+    the cost of slower computation and greater use of memory. See `security levels`_.
+  * *salt* (``bytes``) - The salt used for the password hash. Defaults to ``os.urandom(32)``.
+  * *server* (``bool``) - If ``True``, it is assumed side-channel attack protection is
+    needed and therefore the Argon2i algorithm will be used. Otherwise, the password be
+    hashed using the Argon2d algorithm.
 
 Security levels
 ---------------
