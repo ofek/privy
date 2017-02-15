@@ -133,7 +133,7 @@ All expected times were taken from tests on an Intel Core i7-2670QM @ 2.2 GHz.
 Breaking changes
 ----------------
 
-As of Privy 2.0.0, due to requests, the encrypted format uses url-safe base64 instead of hex.
+As of Privy 2.0.1, due to requests, the encrypted format uses url-safe base64 instead of hex.
 
 .. _Fernet: https://github.com/fernet/spec/blob/master/Spec.md
 .. _key derivation function: https://en.wikipedia.org/wiki/Key_derivation_function
