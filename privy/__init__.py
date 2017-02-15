@@ -5,7 +5,7 @@ from os import urandom
 from argon2.low_level import Type, hash_secret_raw
 from cryptography.fernet import Fernet, InvalidToken
 
-from .utils import bytes_to_hex, ensure_bytes, ensure_unicode, hex_to_bytes
+from .utils import base64_to_bytes, bytes_to_base64, ensure_bytes, ensure_unicode
 
 
 HASH_LENGTH = 32
@@ -42,7 +42,7 @@ def hide(secret, password, security=2, salt=None, server=True):
     token = Fernet(urlsafe_b64encode(hashed)).encrypt(secret)
 
     return u'{}${}${}${}'.format(
-        int(server), security, bytes_to_hex(salt), bytes_to_hex(token)
+        int(server), security, bytes_to_base64(salt), bytes_to_base64(token)
     )
 
 
@@ -52,8 +52,8 @@ def peek(hidden, password, expires=None):
     server, security, salt, token = ensure_unicode(hidden).split('$')
     server = int(server)
     security = int(security)
-    salt = hex_to_bytes(salt)
-    token = hex_to_bytes(token)
+    salt = base64_to_bytes(salt)
+    token = base64_to_bytes(token)
 
     hashed = hash_secret_raw(
         password, salt, hash_len=HASH_LENGTH, parallelism=THREADS,

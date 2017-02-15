@@ -1,4 +1,12 @@
-from binascii import hexlify, unhexlify
+from base64 import urlsafe_b64decode, urlsafe_b64encode
+
+
+def base64_to_bytes(s):
+    return urlsafe_b64decode(s)
+
+
+def bytes_to_base64(s):
+    return urlsafe_b64encode(s).decode('ascii')
 
 
 def ensure_bytes(s):
@@ -11,13 +19,3 @@ def ensure_unicode(s):
     if isinstance(s, bytes):
         s = s.decode('utf-8')
     return s
-
-
-def bytes_to_hex(bytestr):
-    return hexlify(bytestr).decode('ascii')
-
-
-def hex_to_bytes(hexed):
-    if len(hexed) & 1:
-        hexed = u'0' + hexed
-    return unhexlify(hexed)

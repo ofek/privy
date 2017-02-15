@@ -56,7 +56,12 @@ encryption is derived from the password using a `key derivation function`_. The
 key derivation function used is `Argon2`_, the winner of the `Password Hashing
 Competition`_. Both Argon2i and Argon2d variants are supported.
 
-Secrets encrypted with default settings are unicode strings of length 269.
+Secrets encrypted with default settings are unicode strings of length 185.
+
+Encrypted format
+----------------
+
+``ascii(Argon2 algorithm || security level || base64(salt) || base64(Fernet token)``
 
 API
 ---
@@ -125,6 +130,10 @@ All expected times were taken from tests on an Intel Core i7-2670QM @ 2.2 GHz.
 | 10     | m=2 GiB, t=20   | 48 sec        | Lots of RAM     |
 +--------+-----------------+---------------+-----------------+
 
+Breaking changes
+----------------
+
+As of Privy 2.0.0, due to requests, the encrypted format uses url-safe base64 instead of hex.
 
 .. _Fernet: https://github.com/fernet/spec/blob/master/Spec.md
 .. _key derivation function: https://en.wikipedia.org/wiki/Key_derivation_function
