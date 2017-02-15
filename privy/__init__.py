@@ -52,8 +52,8 @@ def peek(hidden, password, expires=None):
     server, security, salt, token = ensure_unicode(hidden).split('$')
     server = int(server)
     security = int(security)
-    salt = base64_to_bytes(salt)
-    token = base64_to_bytes(token)
+    salt = base64_to_bytes(ensure_bytes(salt))
+    token = base64_to_bytes(ensure_bytes(token))
 
     hashed = hash_secret_raw(
         password, salt, hash_len=HASH_LENGTH, parallelism=THREADS,
