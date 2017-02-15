@@ -61,7 +61,7 @@ Secrets encrypted with default settings are unicode strings of length 185.
 Encrypted format
 ----------------
 
-``ascii(Argon2 algorithm || security level || base64(salt) || base64(Fernet token)``
+``ascii(Argon2 algorithm || security level || base64(salt) || base64(Fernet token))``
 
 API
 ---
