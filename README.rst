@@ -56,10 +56,10 @@ encryption is derived from the password using a `key derivation function`_. The
 key derivation function used is `Argon2`_, the winner of the `Password Hashing
 Competition`_. Both Argon2i and Argon2d variants are supported.
 
-Secrets encrypted with default settings are unicode strings of length 185.
-
 Encrypted format
 ----------------
+
+Secrets encrypted with default settings are ascii strings of length 185.
 
 ``ascii(Argon2 algorithm || security level || base64(salt) || base64(Fernet token))``
 
