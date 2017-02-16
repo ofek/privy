@@ -33,7 +33,7 @@ Usage
     >>>
     >>> hidden = privy.hide(secret, password)
     >>> hidden
-    '1$2$c016b66bd5...'
+    '1$2$fL7xRh8WKe...'
     >>>
     >>> privy.peek(hidden, password)
     b'secret'
@@ -130,10 +130,20 @@ All expected times were taken from tests on an Intel Core i7-2670QM @ 2.2 GHz.
 | 10     | m=2 GiB, t=20   | 48 sec        | Lots of RAM     |
 +--------+-----------------+---------------+-----------------+
 
-Breaking changes
-----------------
+Changelog
+---------
 
-As of Privy 2.0.1, due to requests, the encrypted format uses url-safe base64 instead of hex.
+Important changes are emphasized.
+
+2.0.1
+^^^^^
+
+* **Breaking:** Due to requests, the encrypted format now uses url-safe base64 instead of hex.
+
+1.0.0
+^^^^^
+
+* Initial release
 
 .. _Fernet: https://github.com/fernet/spec/blob/master/Spec.md
 .. _key derivation function: https://en.wikipedia.org/wiki/Key_derivation_function
