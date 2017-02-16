@@ -77,7 +77,7 @@ Encrypts ``secret`` using ``password``. Returns the hidden secret as unicode.
 
   - **secret** (``bytes``) - The secret to encrypt.
   - **password** (``bytes`` or ``unicode``) - The password used to access the secret.
-  - **security** (``int``) - A number 0-10 inclusive. Higher values are more secure at
+  - **security** (``int``) - A number 0-20 inclusive. Higher values are more secure at
     the cost of slower computation and greater use of memory. See `security levels`_.
   - **salt** (``bytes``) - The salt used for the password hash. Defaults to ``os.urandom(32)``.
   - **server** (``bool``) - If ``True``, it is assumed side-channel attack protection is
@@ -127,13 +127,39 @@ All expected times were taken from tests on an Intel Core i7-2670QM @ 2.2 GHz.
 +--------+-----------------+---------------+-----------------+
 | 9      | m=1 GiB, t=10   | 12.2 sec      |                 |
 +--------+-----------------+---------------+-----------------+
-| 10     | m=2 GiB, t=20   | 48 sec        | Lots of RAM     |
+| 10     | m=2 GiB, t=20   | 48 sec        |       For       |
++--------+-----------------+---------------+       use       +
+| 11     | m=3 GiB, t=30   | ?             |       on        |
++--------+-----------------+---------------+      users'     +
+| 12     | m=4 GiB, t=40   | ?             |     machines    |
++--------+-----------------+---------------+                 +
+| 13     | m=5 GiB, t=50   | ?             |                 |
++--------+-----------------+---------------+                 +
+| 14     | m=6 GiB, t=60   | ?             |                 |
++--------+-----------------+---------------+                 +
+| 15     | m=7 GiB, t=70   | ?             |                 |
++--------+-----------------+---------------+                 +
+| 16     | m=8 GiB, t=80   | ?             |                 |
++--------+-----------------+---------------+                 +
+| 17     | m=9 GiB, t=90   | ?             |                 |
++--------+-----------------+---------------+                 +
+| 18     | m=10 GiB, t=100 | ?             |                 |
++--------+-----------------+---------------+                 +
+| 19     | m=11 GiB, t=110 | ?             |                 |
++--------+-----------------+---------------+                 +
+| 20     | m=12 GiB, t=120 | ?             |                 |
 +--------+-----------------+---------------+-----------------+
 
 Changelog
 ---------
 
 Important changes are emphasized.
+
+3.0.0
+^^^^^
+
+* Added security levels 11-20. These are quite resource intensive and are therefore
+  only acceptable for individual use.
 
 2.0.1
 ^^^^^
