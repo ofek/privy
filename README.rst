@@ -24,17 +24,30 @@ seeds for digital signatures or Bitcoin wallets.
 Usage
 -----
 
+Say for example you are using GnuPG. You are about to sign a message but it first
+requires your password. Does your password become the input to instantiate your
+private key? No, it is first hashed by a secure `key derivation function`_. That
+hash then becomes the input to a symmetric cipher such as AES which then decrypts
+your stored private key. That is what Privy does.
+
+Fear not! With Privy, this become trivially easy:
+
 .. code-block:: python
 
     >>> import privy
     >>>
+    >>> # After creating secret, immediately encrypt it using Privy.
     >>> secret = b'secret'
-    >>> password = 'foo'
     >>>
-    >>> hidden = privy.hide(secret, password)
+    >>> hidden = privy.hide(secret, ask_for_password())
     >>> hidden
     '1$2$fL7xRh8WKe...'
-    >>>
+
+Now you can safely store or transmit the hidden secret. Whenever your user needs
+to use their secret again, ask for their password to take a peek.
+
+.. code-block:: python
+
     >>> privy.peek(hidden, password)
     b'secret'
 
