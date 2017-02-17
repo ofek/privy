@@ -113,7 +113,7 @@ different hidden secret, or the number of seconds since encryption is > ``expire
 Security levels
 ---------------
 
-All expected times were taken from tests on an Intel Core i7-2670QM @ 2.2 GHz.
+All expected times were taken from tests on an Intel Core i7-2670QM @ 2.2 GHz when decrypting ``b'secret'``.
 
 +--------+-----------------+---------------+-----------------+
 | Levels | Argon2 settings | Expected time | Notes           |
