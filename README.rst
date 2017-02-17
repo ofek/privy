@@ -72,8 +72,6 @@ Competition`_. Both Argon2i and Argon2d variants are supported.
 Encrypted format
 ----------------
 
-Secrets encrypted with default settings are ascii strings of length 185.
-
 ``ascii(Argon2 algorithm || security level || base64(salt) || base64(Fernet token))``
 
 API
