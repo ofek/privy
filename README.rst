@@ -113,34 +113,41 @@ different hidden secret, or the number of seconds since encryption is > ``expire
 Security levels
 ---------------
 
-All expected times were taken from tests on an Intel Core i7-2670QM @ 2.2 GHz when decrypting ``b'secret'``.
+All expected times were taken from tests on an Intel Core i7-2670QM @ 2.2 GHz when decrypting
+a 256 KiB secret.
+
+This is the command, where ``SL`` is the desired security level:
+
+.. code-block:: bash
+
+    $ python -m timeit -s "import privy, os; pw = 'password'; s = os.urandom(1024 * 256); h = privy.hide(s, pw, SL)" "privy.peek(h, pw)"
 
 +--------+-----------------+---------------+-----------------+
 | Levels | Argon2 settings | Expected time | Notes           |
 +========+=================+===============+=================+
-| 0      | m=8 KiB, t=1    | 600 usec      | Lowest possible |
+| 0      | m=8 KiB, t=1    | 7 msec        | Lowest possible |
 +--------+-----------------+---------------+-----------------+
-| 1      | m=4 MiB, t=10   | 50 msec       |                 |
+| 1      | m=4 MiB, t=10   | 54 msec       |                 |
 +--------+-----------------+---------------+-----------------+
-| 2      | m=8 MiB, t=10   | 100 msec      | Default         |
+| 2      | m=8 MiB, t=10   | 99 msec       | Default         |
 +--------+-----------------+---------------+-----------------+
-| 3      | m=32 MiB, t=10  | 350 msec      |                 |
+| 3      | m=32 MiB, t=10  | 367 msec      |                 |
 +--------+-----------------+---------------+-----------------+
-| 4      | m=48 MiB, t=10  | 550 msec      |                 |
+| 4      | m=48 MiB, t=10  | 540 msec      |                 |
 +--------+-----------------+---------------+-----------------+
 | 5      | m=96 MiB, t=10  | 1.1 sec       | Good choice     |
 +--------+-----------------+---------------+-----------------+
 | 6      | m=256 MiB, t=10 | 3 sec         |                 |
 +--------+-----------------+---------------+-----------------+
-| 7      | m=448 MiB, t=10 | 5.3 sec       |                 |
+| 7      | m=448 MiB, t=10 | 5.2 sec       |                 |
 +--------+-----------------+---------------+-----------------+
-| 8      | m=768 MiB, t=10 | 9.1 sec       |                 |
+| 8      | m=768 MiB, t=10 | 9 sec         |                 |
 +--------+-----------------+---------------+-----------------+
 | 9      | m=1 GiB, t=10   | 12.2 sec      |                 |
 +--------+-----------------+---------------+-----------------+
 | 10     | m=2 GiB, t=20   | 48 sec        | For use on      |
 +--------+-----------------+---------------+ users' machines |
-| 11     | m=3 GiB, t=30   | ?             |                 |
+| 11     | m=3 GiB, t=30   | 107           |                 |
 +--------+-----------------+---------------+                 |
 | 12     | m=4 GiB, t=40   | ?             |                 |
 +--------+-----------------+---------------+                 |
@@ -165,6 +172,11 @@ Changelog
 ---------
 
 Important changes are emphasized.
+
+3.1.0
+^^^^^
+
+* Major improvements to documentation.
 
 3.0.0
 ^^^^^
