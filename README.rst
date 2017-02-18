@@ -139,7 +139,7 @@ This is the command, where ``SL`` is the desired security level:
 +--------+-----------------+---------------+-----------------+
 | 6      | m=256 MiB, t=10 | 3 sec         |                 |
 +--------+-----------------+---------------+-----------------+
-| 7      | m=448 MiB, t=10 | 5.2 sec       |                 |
+| 7      | m=512 MiB, t=10 | 6 sec         |                 |
 +--------+-----------------+---------------+-----------------+
 | 8      | m=768 MiB, t=10 | 9 sec         |                 |
 +--------+-----------------+---------------+-----------------+
@@ -173,9 +173,10 @@ Changelog
 
 Important changes are emphasized.
 
-3.1.0
+4.0.0
 ^^^^^
 
+* **Breaking:** For saner conformity, security level 7 now utilizes 512 MiB of RAM instead of 448.
 * Major improvements to documentation.
 
 3.0.0

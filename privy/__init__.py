@@ -22,7 +22,7 @@ SECURITY_LEVELS = OrderedDict([
     (4, {'memory_cost': MB * 48, 'time_cost': 10}),
     (5, {'memory_cost': MB * 96, 'time_cost': 10}),
     (6, {'memory_cost': MB * 256, 'time_cost': 10}),
-    (7, {'memory_cost': MB * 448, 'time_cost': 10}),
+    (7, {'memory_cost': MB * 512, 'time_cost': 10}),
     (8, {'memory_cost': MB * 768, 'time_cost': 10}),
     (9, {'memory_cost': MB * MB, 'time_cost': 10}),
     (10, {'memory_cost': MB * MB * 2, 'time_cost': 20}),
