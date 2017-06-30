@@ -197,7 +197,7 @@ Important changes are emphasized.
 5.0.0
 ^^^^^
 
-* **Breaking:** Privy is now dual-licensed under the terms of MIT/Apache v2.0.
+* **Breaking:** Privy is now dual-licensed under the terms of MIT and Apache v2.0.
 * Only documented methods ``hide`` and ``peek`` are now exposed in the root namespace.
 * Travis now runs tests with the latest versions of PyPy and PyPy3.
 * Improvements to documentation.
