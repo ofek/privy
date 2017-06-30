@@ -19,7 +19,14 @@ Privy: Password-protected secrets made easy
 -----
 
 Privy is a small and fast utility for password-protecting secrets such as
-seeds for digital signatures or Bitcoin wallets.
+API keys, cryptocurrency wallets, or seeds for digital signatures.
+
+Table of Contents
+~~~~~~~~~~~~~~~~~
+
+.. contents::
+    :backlinks: top
+    :local:
 
 Usage
 -----
