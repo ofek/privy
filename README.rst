@@ -180,6 +180,13 @@ Changelog
 
 Important changes are emphasized.
 
+5.0.0
+^^^^^
+
+* Only documented methods ``hide`` and ``peek`` are now exposed in the root namespace.
+* Travis now runs tests with the latest versions of PyPy and PyPy3.
+* Improvements to documentation.
+
 4.0.0
 ^^^^^
 
