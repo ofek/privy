@@ -8,7 +8,7 @@ setup(
     author='Ofek Lev',
     author_email='ofekmeister@gmail.com',
     url='https://github.com/ofek/privy',
-    license='MIT',
+    license='MIT/Apache-2.0',
 
     keywords=(
         'passwords',

@@ -4,17 +4,17 @@ Privy: Password-protected secrets made easy
 .. image:: https://img.shields.io/pypi/v/privy.svg?style=flat-square
     :target: https://pypi.org/project/privy
 
-.. image:: https://img.shields.io/travis/ofek/privy.svg?branch=master&style=flat-square
+.. image:: https://img.shields.io/travis/ofek/privy/master.svg?style=flat-square
     :target: https://travis-ci.org/ofek/privy
 
-.. image:: https://img.shields.io/codecov/c/github/ofek/privy.svg?style=flat-square
+.. image:: https://img.shields.io/codecov/c/github/ofek/privy/master.svg?style=flat-square
     :target: https://codecov.io/gh/ofek/privy
 
 .. image:: https://img.shields.io/pypi/pyversions/privy.svg?style=flat-square
     :target: https://pypi.org/project/privy
 
-.. image:: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
-    :target: https://en.wikipedia.org/wiki/MIT_License
+.. image:: https://img.shields.io/pypi/l/privy.svg?style=flat-square
+    :target: https://choosealicense.com/licenses
 
 -----
 
@@ -179,6 +179,16 @@ This is the command, where ``SL`` is the desired security level:
 | 20     | m=12 GiB, t=120 | ?             |                 |
 +--------+-----------------+---------------+-----------------+
 
+License
+-------
+
+Privy is distributed under the terms of either
+
+- `MIT License <https://choosealicense.com/licenses/mit>`_
+- `Apache License, Version 2.0 <https://choosealicense.com/licenses/apache-2.0>`_
+
+at your option.
+
 Changelog
 ---------
 
@@ -187,6 +197,7 @@ Important changes are emphasized.
 5.0.0
 ^^^^^
 
+* **Breaking:** Privy is now dual-licensed under the terms of MIT/Apache v2.0.
 * Only documented methods ``hide`` and ``peek`` are now exposed in the root namespace.
 * Travis now runs tests with the latest versions of PyPy and PyPy3.
 * Improvements to documentation.
