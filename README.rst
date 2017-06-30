@@ -86,8 +86,10 @@ API
 
 There are 2 functions: ``hide`` and ``peek``.
 
-hide(secret, password, security=2, salt=None, server=True)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+hide
+^^^^
+
+``hide(secret, password, security=2, salt=None, server=True)``
 
 Encrypts ``secret`` using ``password``. Returns the hidden secret as unicode.
 
@@ -102,8 +104,10 @@ Encrypts ``secret`` using ``password``. Returns the hidden secret as unicode.
     needed and therefore the Argon2i algorithm will be used. Otherwise, the password will
     be hashed using the Argon2d algorithm.
 
-peek(hidden, password, expires=None)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+peek
+^^^^
+
+``peek(hidden, password, expires=None)``
 
 Decrypts ``hidden`` using ``password``. Returns the secret as ``bytes``.
 
