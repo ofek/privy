@@ -1,5 +1,5 @@
-Privy: Password-protected secrets made easy
-===========================================
+Privy
+=====
 
 .. image:: https://img.shields.io/pypi/v/privy.svg?style=flat-square
     :target: https://pypi.org/project/privy
@@ -18,7 +18,7 @@ Privy: Password-protected secrets made easy
 
 -----
 
-Privy is a small and fast utility for password-protecting secrets such as
+Privy is a small and fast utility for password-protecting secret data such as
 API keys, cryptocurrency wallets, or seeds for digital signatures.
 
 Table of Contents
@@ -44,9 +44,9 @@ Fear not! With Privy, this become trivially easy:
     >>> import privy
     >>>
     >>> # After creating secret, immediately encrypt it using Privy.
-    >>> secret = b'secret'
+    >>> data = b'secret'
     >>>
-    >>> hidden = privy.hide(secret, ask_for_password())
+    >>> hidden = privy.hide(data, ask_for_password())
     >>> hidden
     '1$2$fL7xRh8WKe...'
 
