@@ -194,6 +194,11 @@ Changelog
 
 Important changes are emphasized.
 
+6.0.0
+^^^^^
+
+* **Breaking:** Support for Python 3.3 has been dropped.
+
 5.0.0
 ^^^^^
 

@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='privy',
-    version='5.0.0',
+    version='6.0.0',
     description='Password-protected data made easy.',
     long_description=open('README.rst', 'r').read(),
     author='Ofek Lev',
@@ -27,7 +27,6 @@ setup(
         'Natural Language :: English',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
