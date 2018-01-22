@@ -32,10 +32,10 @@ Usage
 -----
 
 Say for example you are using GnuPG. You are about to sign a message but it first
-requires your password. Does your password become the input to instantiate your
-private key? No, it is first hashed by a secure `key derivation function`_. That
-hash then becomes the input to a symmetric cipher such as AES which then decrypts
-your stored private key. That is what Privy does.
+requires your password. Does your password become the input to unlock your private
+key? No, it is first hashed by a secure `key derivation function`_. That hash then
+becomes the input to a symmetric cipher such as AES which then decrypts your stored
+private key. That is what Privy does.
 
 Fear not! With Privy, this become trivially easy:
 
